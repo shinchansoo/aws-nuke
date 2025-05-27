@@ -1,8 +1,3 @@
-AWS-NUKE 
-
-github-actions --> aws-nuke-run.yaml
-
-
 # GitHub workflow runing every night at 2am
 name: Run aws-nuke
 on:
