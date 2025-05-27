@@ -1,6 +1,6 @@
 regions:
  # - global
-  - ap-northeast-2
+  - "ap-northeast-2"
 account-blocklist:
   - 999999999999
 
