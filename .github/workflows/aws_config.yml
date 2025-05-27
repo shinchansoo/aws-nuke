@@ -1,0 +1,26 @@
+name: Run aws-nuke
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  aws_nuke:
+    runs-on: ubuntu-latest
+    container:
+      image: quay.io/rebuy/aws-nuke:v2.16.0
+      options: --user root
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-2
+
+      - name: Run aws-nuke
+        run: |
+          aws-nuke -c config.yml --force --no-dry-run --force-sleep 3
