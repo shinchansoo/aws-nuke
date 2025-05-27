@@ -1,0 +1,9 @@
+regions:
+  - global
+  - us-east-1
+  - ap-northeast-2
+account-blocklist:
+  - "999999999999"
+
+accounts:
+  "570289222894":
